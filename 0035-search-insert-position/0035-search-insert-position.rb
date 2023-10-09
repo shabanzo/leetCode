@@ -4,15 +4,20 @@
 def search_insert(nums, target)
     return 0 if target < nums[0]
     return nums.length if target > nums[nums.length - 1]
-    target_index = nil
-    nums.each_with_index do |num, index|
-        if num == target
-            target_index = index
-            break
-        elsif num > target
-            target_index = index
-            break
+  
+    left, right = 0, nums.length - 1
+
+    while left <= right
+        mid = left + (right - left) / 2
+
+        if nums[mid] == target
+            return mid
+        elsif nums[mid] < target
+            left = mid + 1
+        else
+            right = mid - 1
         end
     end
-    target_index
+
+    left
 end
