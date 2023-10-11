@@ -12,5 +12,5 @@ def climb_stairs(n)
         ways[i] = ways[i - 1] + ways[i - 2]
     end
 
-    return ways[n] 
+    ways[n] 
 end
